@@ -1,3 +1,4 @@
+import { RootState } from '@/app/store';
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface AuthState {
@@ -38,3 +39,6 @@ export const authSlice = createSlice({
 export const { setCredentials, logout } = authSlice.actions;
 
 export default authSlice.reducer;
+
+// Other code such as selectors can use the imported `RootState` type
+export const selectToken = (state: RootState) => state.auth.token;
