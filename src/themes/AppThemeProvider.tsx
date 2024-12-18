@@ -187,13 +187,16 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
           // lineHeight: '14px',
         },
         h4: {
-          fontSize: '18px',
-          fontWeight: '600',
+          fontFamily: 'Ubuntu, sans-serif',
+          fontSize: '20px',
+          color: 'white',
           // lineHeight: '23px',
         },
         h5: {
-          fontSize: '16px',
-          fontWeight: '500',
+          fontFamily: 'Ubuntu, sans-serif',
+          fontSize: '12px',
+          fontStyle: 'italic',
+          color: 'white',
           // lineHeight: '20px',
         },
 
@@ -214,7 +217,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
         },
         Body1: {
           fontFamily: 'Ubuntu, sans-serif',
-          fontSize: '14px',
+          fontSize: '20px',
           fontWeight: '400',
           // lineHeight: '18px',
         },
