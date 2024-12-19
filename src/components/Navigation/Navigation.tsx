@@ -6,18 +6,24 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 
-import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
 import { MenuItems } from '../MenuItems/MenuItems';
-import { useAppSelector } from '@/app/store';
+import { useAppDispatch, useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
+import { Modal, setOpenModal } from '@/features/modals/modalsSlice';
 
 export const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
   const token = useAppSelector(selectToken);
 
-  const handleNavMenu = () => {
-    setIsMobileNavOpen(!isMobileNavOpen);
+  const dispatch = useAppDispatch();
+
+  const handleNavMenu = (openModal?: Modal) => {
+    if (!openModal) return;
+
+    if (openModal === Modal.Login) dispatch(setOpenModal(Modal.Login));
+    if (openModal === Modal.Signup) dispatch(setOpenModal(Modal.Signup));
+    if (openModal === Modal.Profile) dispatch(setOpenModal(Modal.Profile));
   };
 
   return (
@@ -25,7 +31,16 @@ export const Navigation = () => {
       <AppBar position="static" color={'transparent'} sx={{ minHeight: '80px', boxShadow: { md: 'none' } }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ height: '80px' }}>
-            <AdbIcon sx={{ mr: 1 }} color={'primary'} />
+            <Box
+              component="img"
+              sx={{
+                height: 30,
+                width: 30,
+                mr: 1,
+              }}
+              alt="FlowrSpot Logo"
+              src="./flowrspot.png"
+            />
             <Typography variant="h3" color="primary">
               FlowrSpot
             </Typography>
@@ -36,7 +51,7 @@ export const Navigation = () => {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleNavMenu}
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
                 color={'secondary'}
               >
                 <MenuIcon />

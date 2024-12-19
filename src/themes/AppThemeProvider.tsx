@@ -1,7 +1,6 @@
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { drawerClasses, PaletteMode } from '@mui/material';
+import { PaletteMode } from '@mui/material';
 import React from 'react';
-import zIndex from '@mui/material/styles/zIndex';
 
 import '@fontsource/ubuntu/300.css';
 import '@fontsource/ubuntu/400.css';
@@ -41,13 +40,6 @@ declare module '@mui/material/styles' {
     primary: string;
     secondary: string;
     disabled: string;
-  }
-  interface PaletteOptions {
-    gradient: TypeGradient;
-    Ink: TypeColor;
-    Sky: TypeColor;
-    Red: TypeColor;
-    Green: TypeColor;
   }
 
   interface TypeBackground {
@@ -94,55 +86,26 @@ declare module '@mui/material/Typography' {
     Body1SemiBold: true;
   }
 }
+
 export const AppThemeProvider: React.FC<Props> = ({ children }) => {
-  const mode = 'light';
   const theme = responsiveFontSizes(
     createTheme({
       palette: {
-        mode: mode as PaletteMode,
+        mode: 'light',
         primary: {
           main: '#EAA79E',
         },
+
         secondary: {
           main: '#949EA0',
         },
-        Ink: {
-          Darkest: '#000000',
-          Darker: '#222222',
-          Dark: '#303437',
-          Base: '#404446',
-          Light: '#6C7072',
-          Lighter: '#72777A',
-        },
-        Sky: {
-          Dark: '#979C9E',
-          Base: '#CDCFD0',
-          Light: '#E3E5E5',
-          Lighter: '#F2F4F5',
-          Lightest: '#F7F9FA',
-          White: '#FFFFFF',
-        },
 
-        Red: {
-          Darkest: '#6B0206',
-          Base: '#E8282B',
-          Light: '#F94739',
-          Lighter: '#FF9898',
-          Lightest: '#FFE5E5',
-        },
-
-        Green: {
-          Darkest: '#0A4C0A',
-          Base: '#0F8B0F',
-          Light: '#1EB01E',
-          Lighter: '#7FF77F',
-          Lightest: '#E5FFE5',
-        },
         background: {
           default: '#FCFBFA',
           opposite: '#000000',
           paper: '#FCFCFC',
         },
+
         text: {
           primary: '#000000',
           secondary: '#999999',
@@ -160,11 +123,6 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
           700: 'hsl(0, 0%, 30%)',
           800: 'hsl(0, 0%, 20%)',
           900: 'hsl(0, 0%, 10%)',
-        },
-        gradient: {
-          bronze: 'linear-gradient(180deg, #9C6D3E 0%, #E8C8A9 100%)',
-          silver: 'linear-gradient(180deg, #808080 0%, #DFDFDF 100%)',
-          gold: 'linear-gradient(180deg, #A3873C 0%, #E3D294 100%)',
         },
       },
 
@@ -189,14 +147,12 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
         h4: {
           fontFamily: 'Ubuntu, sans-serif',
           fontSize: '20px',
-          color: 'white',
           // lineHeight: '23px',
         },
         h5: {
           fontFamily: 'Ubuntu, sans-serif',
           fontSize: '12px',
           fontStyle: 'italic',
-          color: 'white',
           // lineHeight: '20px',
         },
 
@@ -256,7 +212,20 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
           display: 'block',
         },
       },
+
       components: {
+        MuiChip: { styleOverrides: { root: { color: 'white', fontFamily: 'Ubuntu', fontSize: '12px' } } },
+        MuiDialog: {
+          styleOverrides: {
+            paperFullScreen: {
+              position: 'absolute',
+              bottom: 0,
+              height: 'calc(100% - 80px)',
+              marginTop: 'auto',
+              boxShadow: 'none',
+            },
+          },
+        },
         MuiButton: {
           styleOverrides: {
             root: {
@@ -301,6 +270,11 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
       },
     }),
   );
+
+  theme.components = {
+    ...theme.components,
+    MuiBackdrop: { styleOverrides: { root: { [theme.breakpoints.only('xs')]: { backgroundColor: 'transparent' } } } },
+  };
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
