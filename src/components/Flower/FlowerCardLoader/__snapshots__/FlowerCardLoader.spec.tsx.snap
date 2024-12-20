@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FlowerCardLoader component > Flower component to render 1`] = `
+<div>
+  <div
+    data-component-name="Box"
+  >
+    --- PROPS
+    {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  sx: {
+    position: 'relative',
+    borderRadius: 1,
+    width: '100%',
+    aspectRatio: '28/35',
+    backgroundColor: 'lightgrey'
+  }
+}
+    --- CHILDREN
+    <div
+      data-component-name="CircularProgress"
+    >
+      --- PROPS
+      {}
+      --- CHILDREN
+    </div>
+  </div>
+</div>
+`;

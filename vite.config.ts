@@ -29,7 +29,7 @@ export default defineConfig({
       '@/layout': '/src/layout',
       '@/data': '/src/data',
       '@/helper': '/src/helper',
-      '@/i18n': '/src/i18n',
+      '@/mocks': '/src/mocks',
     },
   },
 });

@@ -23,11 +23,9 @@ const PublicHome = () => {
   return <FlowersGrid flowers={currentData!} isLoading={isLoading} />;
 };
 
-const Home = () => {
+export const Home = () => {
   const token = useAppSelector(selectToken);
   const isAuthenticated = Boolean(token);
 
   return <Layout>{isAuthenticated ? <UserHome /> : <PublicHome />}</Layout>;
 };
-
-export default Home;

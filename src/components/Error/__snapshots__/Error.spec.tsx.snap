@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error component > CCChat component to render 1`] = `
+<div>
+  <div
+    data-component-name="Container"
+  >
+    --- PROPS
+    {}
+    --- CHILDREN
+    <div
+      data-component-name="Stack"
+    >
+      --- PROPS
+      { spacing: 5 }
+      --- CHILDREN
+      <div
+        data-component-name="Typography"
+      >
+        --- PROPS
+        { variant: 'h1' }
+        --- CHILDREN
+        mock-title
+      </div>
+      <div
+        data-component-name="Typography"
+      >
+        --- PROPS
+        { variant: 'h2' }
+        --- CHILDREN
+        mock-message
+      </div>
+    </div>
+  </div>
+</div>
+`;
