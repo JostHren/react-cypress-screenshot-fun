@@ -1,35 +1,33 @@
 import { useLoginMutation } from '@/features/auth/authApiSlice';
 import { setCredentials } from '@/features/auth/authSlice';
 import { Modal, setOpenModal } from '@/features/modals/modalsSlice';
-import { Button, TextField, Typography } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
+interface IFormLoginInput {
+  email: string;
+  password: string;
+}
+
 export const LoginForm = () => {
-  const userRef = useRef<HTMLInputElement>(null);
   const [login, { isLoading, isError, isSuccess, error }] = useLoginMutation();
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
   });
 
-  useEffect(() => {
-    if (!userRef?.current) return;
-    userRef.current.focus();
-  }, []);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e: React.MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit: SubmitHandler<IFormLoginInput> = async (data) => {
     const userData = await login({
-      email: formData.email,
-      password: formData.password,
+      email: data.email,
+      password: data.password,
     }).unwrap();
 
     dispatch(setCredentials({ ...userData }));
@@ -37,49 +35,64 @@ export const LoginForm = () => {
   };
 
   return (
-    <>
-      <Typography variant={'h1'} textAlign={'center'} sx={{ marginBottom: 2 }}>
+    <Box p={2}>
+      <Typography variant={'CTA1'} display={'block'} textAlign={'center'} sx={{ marginBottom: 1 }}>
         Welcome Back
       </Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="Email Address"
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
           name="email"
-          value={formData.email}
-          onChange={handleChange}
-          fullWidth
-          required
-          margin="normal"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              error={Boolean(errors.email?.message)}
+              helperText={errors.email?.message}
+              margin={'normal'}
+              fullWidth
+              label="Email Address"
+              {...field}
+            />
+          )}
+          rules={{
+            required: { value: true, message: 'This field is required' },
+            pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email is not valid!' },
+          }}
         />
-        <TextField
-          label="Password"
+
+        <Controller
           name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          fullWidth
-          required
-          margin="normal"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              error={Boolean(errors.password?.message)}
+              helperText={errors.password?.message}
+              type="password"
+              label="Password"
+              fullWidth
+              {...field}
+            />
+          )}
+          rules={{
+            required: { value: true, message: 'This field is required' },
+            minLength: { value: 8, message: 'Password is too short!' },
+          }}
         />
+
         <Button
           type="submit"
           variant="contained"
           color="primary"
           fullWidth
           disabled={isLoading}
-          sx={{ mt: 2, borderRadius: 1 }}
+          sx={{ mt: 3, borderRadius: 1, height: '50px' }}
         >
           Login to your Account
         </Button>
       </form>
 
-      {isLoading && <div>Loading ...</div>}
-      {isError && (
-        <div>
-          Error! {error.data.message} {error.data.detail}
-        </div>
-      )}
+      {isLoading && <CircularProgress />}
+      {isError && <div>Error! {JSON.stringify(error)}</div>}
       {isSuccess && <div> Success!</div>}
-    </>
+    </Box>
   );
 };

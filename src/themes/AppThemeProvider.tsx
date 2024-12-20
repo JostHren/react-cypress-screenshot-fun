@@ -1,5 +1,4 @@
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { PaletteMode } from '@mui/material';
 import React from 'react';
 
 import '@fontsource/ubuntu/300.css';
@@ -114,7 +113,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
 
         grey: {
           50: 'hsl(0, 5%, 95%)',
-          100: 'hsl(0, 0%, 90%)',
+          100: 'hsl(0, 0%, 95%)',
           200: 'hsl(0, 0%, 80%)',
           300: 'hsl(0, 0%, 70%)',
           400: 'hsl(0, 0%, 60%)',
@@ -157,7 +156,8 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
         },
 
         CTA1: {
-          fontSize: '28px',
+          fontFamily: 'Ubuntu, sans-serif',
+          fontSize: '20px',
           fontWeight: '500',
           // lineHeight: '35px',
         },
@@ -274,6 +274,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
 
   theme.components = {
     ...theme.components,
+    MuiTextField: { styleOverrides: { root: { backgroundColor: theme.palette.grey[100] } } },
     MuiBackdrop: { styleOverrides: { root: { [theme.breakpoints.only('xs')]: { backgroundColor: 'transparent' } } } },
   };
 

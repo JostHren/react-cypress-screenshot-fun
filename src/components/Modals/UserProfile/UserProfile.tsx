@@ -27,48 +27,52 @@ export const UserProfile = () => {
       <Stack direction="row" spacing={2} paddingBottom={4} alignItems={'center'}>
         <Avatar src="./profile-holder.png" sx={{ height: '70px', width: '70px' }} alt={firstName} />
         <Stack>
-          <Typography variant="h3">
+          <Typography variant="Body1">
             {firstName} {lastName}
           </Typography>
-          <Typography variant="h5" color="secondary">
+          <Typography variant="Body1Medium" color="secondary">
             {sightingsNum} sightings
           </Typography>
         </Stack>
       </Stack>
 
-      <Typography variant="h5" color="secondary">
-        First Name
-      </Typography>
-      <Typography variant="h3" mb={3}>
-        {firstName}
-      </Typography>
+      <Stack>
+        <Typography variant="Body3" color="secondary">
+          First Name
+        </Typography>
+        <Typography variant="Body2" mb={3}>
+          {firstName}
+        </Typography>
 
-      <Typography variant="h5" color="secondary">
-        Last Name
-      </Typography>
-      <Typography variant="h3" mb={3}>
-        {lastName}
-      </Typography>
+        <Typography variant="Body3" color="secondary">
+          Last Name
+        </Typography>
+        <Typography variant="Body2" mb={3}>
+          {lastName}
+        </Typography>
 
-      <Typography variant="h5" color="secondary">
-        Date of Birth
-      </Typography>
-      <Typography variant="h3" mb={3}>
-        {dateOfBirth}
-      </Typography>
+        <Typography variant="Body3" color="secondary">
+          Date of Birth
+        </Typography>
+        <Typography variant="Body2" mb={3}>
+          {dateOfBirth}
+        </Typography>
 
-      <Typography variant="h5" color="secondary">
-        Email Address
-      </Typography>
-      <Typography variant="h3" mb={3}>
-        {email}
-      </Typography>
+        <Typography variant="Body3" color="secondary">
+          Email Address
+        </Typography>
+        <Typography variant="Body2" mb={3}>
+          {email}
+        </Typography>
+      </Stack>
 
       <Button
         variant="contained"
         color="primary"
         onClick={handleLogout}
         sx={{
+          height: '50px',
+          minWidth: '150px',
           alignSelf: 'center',
           borderRadius: 1,
           marginTop: '3rem',

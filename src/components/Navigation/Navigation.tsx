@@ -12,9 +12,53 @@ import { useAppDispatch, useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
 import { Modal, setOpenModal } from '@/features/modals/modalsSlice';
 
+interface MobileNavigationProps {
+  handleModals: (modal?: Modal) => void;
+  isLoggedIn: boolean;
+}
+
+const MobileNavigation = ({ handleModals, isLoggedIn }: MobileNavigationProps) => {
+  return (
+    <Container sx={{ height: '100vh', display: { xs: 'block', md: 'none' } }}>
+      <MenuItems
+        isLoggedIn={isLoggedIn}
+        handleModals={handleModals}
+        sxSettings={{
+          flexDirection: 'column',
+          rowGap: '2rem',
+          display: 'flex',
+          alignItems: 'flex-start',
+          pt: '6rem',
+        }}
+      />
+    </Container>
+  );
+};
+
+const FlowrLogo = () => {
+  return (
+    <>
+      <Box
+        component="img"
+        sx={{
+          height: 30,
+          width: 30,
+          mr: 1,
+        }}
+        alt="FlowrSpot Logo"
+        src="./flowrspot.png"
+      />
+      <Typography variant="h3" color="primary">
+        FlowrSpot
+      </Typography>
+    </>
+  );
+};
+
 export const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
   const token = useAppSelector(selectToken);
+  const isLoggedIn = Boolean(token);
 
   const dispatch = useAppDispatch();
 
@@ -31,56 +75,23 @@ export const Navigation = () => {
       <AppBar position="static" color={'transparent'} sx={{ minHeight: '80px', boxShadow: { md: 'none' } }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ height: '80px' }}>
-            <Box
-              component="img"
-              sx={{
-                height: 30,
-                width: 30,
-                mr: 1,
-              }}
-              alt="FlowrSpot Logo"
-              src="./flowrspot.png"
-            />
-            <Typography variant="h3" color="primary">
-              FlowrSpot
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-                color={'secondary'}
-              >
-                <MenuIcon />
-              </IconButton>
-            </Box>
+            <FlowrLogo />
 
             <MenuItems
-              isLoggedIn={Boolean(token)}
+              isLoggedIn={isLoggedIn}
               handleModals={handleModals}
               sxSettings={{ flexGrow: 1, justifyContent: 'flex-end', gap: '2rem', display: { xs: 'none', md: 'flex' } }}
             />
+
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
+              <IconButton size="large" onClick={() => setIsMobileNavOpen(!isMobileNavOpen)} color={'secondary'}>
+                <MenuIcon />
+              </IconButton>
+            </Box>
           </Toolbar>
         </Container>
 
-        {isMobileNavOpen && (
-          <Container sx={{ height: '100vh', display: { xs: 'block', md: 'none' } }}>
-            <MenuItems
-              isLoggedIn={Boolean(token)}
-              handleModals={handleModals}
-              sxSettings={{
-                flexDirection: 'column',
-                rowGap: '2rem',
-                display: 'flex',
-                alignItems: 'flex-start',
-                pt: '6rem',
-              }}
-            />
-          </Container>
-        )}
+        {isMobileNavOpen && <MobileNavigation isLoggedIn={isLoggedIn} handleModals={handleModals} />}
       </AppBar>
     </div>
   );
