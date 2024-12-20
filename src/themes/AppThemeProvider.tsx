@@ -173,26 +173,26 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
         },
         Body1: {
           fontFamily: 'Ubuntu, sans-serif',
-          fontSize: '20px',
-          fontWeight: '400',
+          fontSize: '25px',
+          fontWeight: '300',
           // lineHeight: '18px',
         },
         Body2: {
           fontFamily: 'Ubuntu, sans-serif',
-          fontSize: '13px',
+          fontSize: '18px',
           fontWeight: '400',
           // lineHeight: '16px',
         },
         Body3: {
           fontFamily: 'Ubuntu, sans-serif',
-          fontSize: '12px',
+          fontSize: '10px',
           fontWeight: '400',
           // lineHeight: '14px',
         },
         Body1Medium: {
           fontFamily: 'Ubuntu, sans-serif',
-          fontSize: '14px',
-          fontWeight: '500',
+          fontSize: '13px',
+          fontWeight: '400',
           // lineHeight: '17px',
         },
         Body1SemiBold: {
@@ -234,6 +234,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
               display: 'block',
             },
             containedPrimary: {
+              fontFamily: 'Ubuntu',
               color: 'white',
               background: 'linear-gradient(270deg, #ECBCB3 0%, #EAA79E 100%)',
               boxShadow: '0px 15px 20px 0px #EAA89F33',

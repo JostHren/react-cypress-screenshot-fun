@@ -18,7 +18,7 @@ export const Navigation = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleNavMenu = (openModal?: Modal) => {
+  const handleModals = (openModal?: Modal) => {
     if (!openModal) return;
 
     if (openModal === Modal.Login) dispatch(setOpenModal(Modal.Login));
@@ -60,7 +60,7 @@ export const Navigation = () => {
 
             <MenuItems
               isLoggedIn={Boolean(token)}
-              handleNavMenu={handleNavMenu}
+              handleModals={handleModals}
               sxSettings={{ flexGrow: 1, justifyContent: 'flex-end', gap: '2rem', display: { xs: 'none', md: 'flex' } }}
             />
           </Toolbar>
@@ -70,7 +70,7 @@ export const Navigation = () => {
           <Container sx={{ height: '100vh', display: { xs: 'block', md: 'none' } }}>
             <MenuItems
               isLoggedIn={Boolean(token)}
-              handleNavMenu={handleNavMenu}
+              handleModals={handleModals}
               sxSettings={{
                 flexDirection: 'column',
                 rowGap: '2rem',

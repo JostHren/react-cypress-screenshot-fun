@@ -1,33 +1,32 @@
 import { Modal } from '@/features/modals/modalsSlice';
-import { Avatar, Box, Button, IconButton, SxProps, Theme } from '@mui/material';
+import { Avatar, Box, Button, IconButton, styled, SxProps, Theme } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 interface MenuItemProps {
-  handleNavMenu: (modal?: Modal) => void;
+  handleModals: (modal?: Modal) => void;
   isLoggedIn: boolean;
   sxSettings: SxProps<Theme>;
 }
 
-export const MenuItems = ({ handleNavMenu, isLoggedIn, sxSettings }: MenuItemProps) => {
+const LinkButton = styled(Button)(({ theme }) => ({ color: `${theme.palette.secondary.main}` }));
+const SignupButton = styled(Button)({ minWidth: '2rem', boxShadow: 'none', fontFamily: 'Montserrat' });
+const LoginButton = styled(Button)({ minWidth: '2rem' });
+
+export const MenuItems = ({ handleModals, isLoggedIn, sxSettings }: MenuItemProps) => {
+  const navigateTo = useNavigate();
+
   return (
     <Box sx={sxSettings}>
-      <Button onClick={() => handleNavMenu()} color={'secondary'}>
-        Flowers
-      </Button>
-      <Button onClick={() => handleNavMenu()} color={'secondary'}>
-        Latest Sightings
-      </Button>
-      <Button onClick={() => handleNavMenu()} color={'secondary'}>
-        Favorites
-      </Button>
+      <LinkButton onClick={() => navigateTo('/home')}>Flowers</LinkButton>
+      <LinkButton onClick={() => navigateTo('/latest/')}>Latest Sightings</LinkButton>
+      {isLoggedIn && <LinkButton onClick={() => navigateTo('/favorites')}>Favorites</LinkButton>}
 
       {!isLoggedIn && (
         <>
-          <Button onClick={() => handleNavMenu(Modal.Login)} color={'primary'} sx={{ minWidth: '2rem' }}>
-            Login
-          </Button>
-          <Button onClick={() => handleNavMenu(Modal.Signup)} variant={'contained'}>
+          <LoginButton onClick={() => handleModals(Modal.Login)}>Login</LoginButton>
+          <SignupButton onClick={() => handleModals(Modal.Signup)} variant="contained">
             New Account
-          </Button>
+          </SignupButton>
         </>
       )}
 
