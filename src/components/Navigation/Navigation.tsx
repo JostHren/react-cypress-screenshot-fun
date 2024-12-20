@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 
 import { useState } from 'react';
-import { MenuItems } from '../MenuItems/MenuItems';
+import { MenuItems } from './MenuItems/MenuItems';
 import { useAppDispatch, useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
 import { Modal, setOpenModal } from '@/features/modals/modalsSlice';

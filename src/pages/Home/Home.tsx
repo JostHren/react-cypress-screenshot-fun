@@ -1,5 +1,5 @@
 import { useGetFlowersQuery, useGetUserFlowersQuery } from '@/features/flower/flowerApiSlice';
-import { FlowersGrid } from '@/components/FlowersGrid/FlowersGrid';
+import { FlowersGrid } from '@/components/Flower/FlowersGrid/FlowersGrid';
 import { useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
 import { Layout } from '@/components/Layout/Layout';
