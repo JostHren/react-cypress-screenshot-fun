@@ -3,17 +3,24 @@ import { FlowersGrid } from '@/components/Flower/FlowersGrid/FlowersGrid';
 import { useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
 import { Layout } from '@/components/Layout/Layout';
+import { ErrorPage } from '@/components/Error/Error';
 
 const UserHome = () => {
-  const { isLoading, currentData } = useGetUserFlowersQuery('');
+  const { isLoading, currentData, isError } = useGetUserFlowersQuery('');
 
-  return <FlowersGrid flowers={currentData} isLoading={isLoading} />;
+  if (isError) return <ErrorPage title="Error" message="Sorry, there seems to be an error!" />;
+  if (!isLoading && !currentData?.items) return <ErrorPage title="No Flowers" message="Sorry no flowers found!" />;
+
+  return <FlowersGrid flowers={currentData!} isLoading={isLoading} />;
 };
 
 const PublicHome = () => {
-  const { isLoading, currentData } = useGetFlowersQuery('');
+  const { isLoading, currentData, isError } = useGetFlowersQuery('');
 
-  return <FlowersGrid flowers={currentData} isLoading={isLoading} />;
+  if (isError) return <ErrorPage title="Error" message="Sorry, there seems to be an error!" />;
+  if (!isLoading && !currentData?.items) return <ErrorPage title="No Flowers" message="Sorry no flowers found!" />;
+
+  return <FlowersGrid flowers={currentData!} isLoading={isLoading} />;
 };
 
 const Home = () => {

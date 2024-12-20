@@ -24,13 +24,13 @@ export interface Flowers {
 
 export const flowerApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getFlowers: builder.query({
+    getFlowers: builder.query<Flowers, string>({
       query: () => ({
         url: '/flowers',
         method: 'GET',
       }),
     }),
-    getUserFlowers: builder.query({
+    getUserFlowers: builder.query<Flowers, string>({
       query: () => ({
         url: '/account/flowers',
         method: 'GET',
