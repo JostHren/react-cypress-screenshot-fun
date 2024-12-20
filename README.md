@@ -1,47 +1,41 @@
-## vite-mui-ts boilerplate
+# Series carousel sample app
 
-TypeScript + React + Redux + MUI + RRD + ESLint + Prettier
+This app was created with `Vite` build tool using `vite-mui-ts` template.
 
-![vite-mui-ts](https://i.ibb.co/j8JSrhV/Screenshot-2023-07-06-121352.png)
+Main dependencies:
 
-### Getting Started
+- React
+- React-router | Routing
+- Redux | State management
+- Reduxjs/Toolkit | Toolset for Redux, Async operations (RTK Query)
+- Material UI - MUI
 
-#### Clone the repo
+## Run and test App
 
-```
-npx degit emre-cil/vite-mui-ts my-app
-```
-
-```
-cd my-app
-```
-
-#### Install Dependencies
+Set `VITE_API_URL`in `.env` file.
+Then run (Node v20.10):
 
 ```
-pnpm install
+$ npm run install
 ```
 
-#### Run
+Then - to run:
+
+-- app in `dev` mode:
 
 ```
-pnpm dev
+$ npm run dev
 ```
 
-### Scripts
-
-| Script        | Description                        |
-| ------------- | ---------------------------------- |
-| pnpm dev      | Runs the application.              |
-| pnpm build    | Create builds for the application. |
-| pnpm preview  | Runs the Vite preview              |
-| pnpm lint     | Display eslint errors              |
-| pnpm lint:fix | Fix the eslint errors              |
-| pnpm format   | Runs prettier for all files        |
-| pnpm test     | Run tests                          |
-
-### Check List
+-- app in `production` mode:
 
 ```
+$ npm run build
+$ npm run preview
+```
 
+-- unit tests:
+
+```
+$ npm run test
 ```
