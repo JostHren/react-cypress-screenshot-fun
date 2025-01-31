@@ -38,7 +38,7 @@ const StarIndicator = ({ isFavorite = false }: StarIndicatorProps) => {
 };
 
 export const FlowerCard = ({ flower }: FlowerCardProps) => {
-  const { name, latinName, isFavorite, sightingsNum, pictureUrl } = flower;
+  const { name, latinName, isFavorite, sightingsNum, pictureUrl, description } = flower;
 
   return (
     <Box
@@ -69,8 +69,9 @@ export const FlowerCard = ({ flower }: FlowerCardProps) => {
         <Typography noWrap variant={'h5'} color={'white'} mb={'20px'}>
           {latinName}
         </Typography>
+
         <Chip
-          sx={{ background: isFavorite ? 'red' : 'rgba(0, 0, 0, 0.5)' }}
+          sx={{ background: isFavorite ? '#EAA79E' : 'rgba(0, 0, 0, 0.5)' }}
           label={`${sightingsNum} sightings`}
           variant={'filled'}
           color={isFavorite ? 'primary' : 'secondary'}

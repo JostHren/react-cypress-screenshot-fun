@@ -8,6 +8,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
         body: undefined,
       }),
+      keepUnusedDataFor: 0,
     }),
   }),
 });
