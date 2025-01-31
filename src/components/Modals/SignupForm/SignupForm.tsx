@@ -56,6 +56,7 @@ export const SignupForm = () => {
               control={control}
               render={({ field }) => (
                 <TextField
+                  data-cy="signup-first-name-input"
                   error={Boolean(errors.firstName?.message)}
                   helperText={errors.firstName?.message}
                   label="First Name"
@@ -73,6 +74,7 @@ export const SignupForm = () => {
               control={control}
               render={({ field }) => (
                 <TextField
+                  data-cy="signup-last-name-input"
                   error={Boolean(errors.lastName?.message)}
                   helperText={errors.lastName?.message}
                   label="Last Name"
@@ -109,6 +111,7 @@ export const SignupForm = () => {
             control={control}
             render={({ field }) => (
               <TextField
+                data-cy="signup-email-input"
                 error={Boolean(errors.email?.message)}
                 helperText={errors.email?.message}
                 label="Email Address"
@@ -127,6 +130,7 @@ export const SignupForm = () => {
             control={control}
             render={({ field }) => (
               <TextField
+                data-cy="signup-password-input"
                 error={Boolean(errors.password?.message)}
                 helperText={errors.password?.message}
                 label="Password"
@@ -150,6 +154,7 @@ export const SignupForm = () => {
           fullWidth
           disabled={isLoading}
           sx={{ mt: 3, borderRadius: 1, height: '50px' }}
+          data-cy="signup-submit-button"
         >
           Submit
         </Button>
