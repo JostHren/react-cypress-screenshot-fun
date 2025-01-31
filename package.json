@@ -59,22 +59,29 @@
     "@types/eslint": "9.6.1",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "@vitejs/plugin-react-swc": "^3.7.2",
     "@typescript-eslint/eslint-plugin": "8.18.1",
     "@typescript-eslint/parser": "8.18.1",
     "@vitejs/plugin-react": "4.3.4",
-    "@vitest/coverage-v8": "2.1.8",
+    "@vitejs/plugin-react-swc": "^3.7.2",
     "@vitest/browser": "2.1.8",
+    "@vitest/coverage-v8": "2.1.8",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "jsdom": "25.0.1",
+    "msw": "^2.7.0",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.1",
     "vite": "^6.0.5",
     "vite-plugin-dts": "4.4.0",
     "vitest": "2.1.8",
-    "vitest-browser-react": "0.0.4",
-    "jsdom": "25.0.1"
+    "vitest-browser-react": "0.0.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "http:/localhost:5174",
+      "public"
+    ]
   }
 }

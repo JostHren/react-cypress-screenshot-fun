@@ -24,7 +24,7 @@ export const MenuItems = ({ handleModals, isLoggedIn, sxSettings }: MenuItemProp
       {!isLoggedIn && (
         <>
           <LoginButton onClick={() => handleModals(Modal.Login)}>Login</LoginButton>
-          <SignupButton onClick={() => handleModals(Modal.Signup)} variant="contained">
+          <SignupButton onClick={() => handleModals(Modal.Signup)} variant="contained" data-cy="signup-button">
             New Account
           </SignupButton>
         </>

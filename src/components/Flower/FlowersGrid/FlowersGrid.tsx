@@ -19,7 +19,7 @@ export const FlowersGrid = ({ flowers, isLoading = false }: FlowersGridProps) =>
     );
 
   return (
-    <Grid container spacing={2} sx={{ p: 2 }}>
+    <Grid container spacing={2} sx={{ p: 2 }} data-cy="flower-grid">
       {flowers.items.map((flower: Flower) => (
         <Grid key={flower.id} size={{ xs: 6, md: 4, lg: 3 }}>
           <FlowerCard flower={flower} />
