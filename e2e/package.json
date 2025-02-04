@@ -2,7 +2,7 @@
   "name": "e2e",
   "version": "1.0.0",
   "scripts": {
-    "run:cypress": "cypress run --headless --browser firefox --spec \"./cypress/integration/$CYPRESS_SPEC_FILE.spec.ts\"",
+    "run:cypress": "cypress run --headless --browser electron --spec \"./cypress/integration/$CYPRESS_SPEC_FILE.spec.ts\"",
     "run:cypress:watch": "cypress open --e2e",
     "test:static": "npm run test:static:lint && npm run test:static:format",
     "test:static:fix": "npm run test:static:lint:fix && npm run format",

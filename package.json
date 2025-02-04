@@ -1,24 +1,17 @@
 {
-  "name": "vite-mui-ts",
+  "name": "screenshot-demo",
   "version": "1.0.0",
-  "description": "FlowrSpot",
+  "description": "demo-app",
   "license": "MIT",
-  "author": "jhren <jost.hren@gmail.com>",
+  "author": "jhren <josthren@gmail.com>",
   "keywords": [
     "react",
     "typescript",
     "vite",
     "redux",
-    "material-ui"
+    "material-ui",
+    "cypress"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/emre-cil/vite-mui-ts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/emre-cil/vite-mui-ts/issues"
-  },
-  "homepage": "https://github.com/emre-cil/vite-mui-ts#readme",
   "scripts": {
     "dev": "vite --open",
     "start": "vite --open",
@@ -30,10 +23,7 @@
     "format": "prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:cover": "vitest run --coverage",
-    "test:e2e": "pnpm preview:test 'cypress open'",
-    "test:e2e:headless": "pnpm preview:test 'cypress run'",
-    "test:e2e:ci": "vite build && pnpm preview:test 'cypress run --record'"
+    "test:cover": "vitest run --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -80,7 +70,6 @@
   },
   "msw": {
     "workerDirectory": [
-      "http:/localhost:5174",
       "public"
     ]
   }
