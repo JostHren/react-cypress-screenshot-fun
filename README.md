@@ -1,41 +1,56 @@
-# Series carousel sample app
+# React Cypress Screenshot Fun
+Simple React App to test out Redux RTK Query and MUI. It also serves as showroom for custom Cypress plugin which makes comparison of screenshots in e2e tests easy. 
 
-This app was created with `Vite` build tool using `vite-mui-ts` template.
+Stack used: React | React-router | Redux Toolkit with RTK Query | Material UI | Cypress | Mock service Worker
 
-Main dependencies:
-
-- React
-- React-router | Routing
-- Redux | State management
-- Reduxjs/Toolkit | Toolset for Redux, Async operations (RTK Query)
-- Material UI - MUI
-
-## Run and test App
-
-Set `VITE_API_URL`in `.env` file.
-Then run (Node v20.10):
-
+## Getting started (run app in docker)
+To enable API mocking set `.env` file to:
 ```
-$ npm run install
+VITE_API_URL=https://mock-my-api.com/
+VITE_ENABLE_API_MOCKING=enabled
 ```
 
-Then - to run:
-
--- app in `dev` mode:
-
+Then run:
 ```
-$ npm run dev
+make docker/e2e
 ```
 
--- app in `production` mode:
+This comand will run app in dev mode and run e2e screenshots. As there are no changes in codebase everything should pass.
 
-```
-$ npm run build
-$ npm run preview
+If you want to have some fun go ahead and change something in codebase. 
+(You can also change line  `63` in`/src/components/Flower/FlowerCard/FlowerCard.tsx` to `paddingBottom: '22px'`,  as in example below)
+
+Now run e2e test again and they should fail.
+
+Checkout `/e2e/cypress/screenshoots` folder for more info.
+
+
+## How does it work?
+Plugin compares reference image with actual image recorded during e2e test:
+
+![Reference Image](docs/images/screenshot-reference.png "Reference Image") ![Reference Image](docs/images/screenshot-actual.png "Actual Image")
+
+
+If images are the same test passes. If there is a difference test fails and diff image is created:
+
+![Reference Image](docs/images/diff.png "Reference Image")
+
+
+
+## How to generate reference screenshoots?
+In case that you are adding new e2e tests, new screenshots have to be generated.
+
+To generate new reference screenshots run:
+
+``` 
+make docker/e2e/generate
 ```
 
--- unit tests:
+Thats is, congatulations! You have sucessfully created new screenshots!
 
-```
-$ npm run test
-```
+From now on screenshots that have been just generetaed are the golden standardad for every next e2e run.
+
+
+## Other 
+Check Makefile for more useful commands.
+

@@ -60,7 +60,7 @@ export const FlowerCard = ({ flower }: FlowerCardProps) => {
           height: '100%',
           justifyContent: 'flex-end',
           alignItems: 'center',
-          paddingBottom: '20px',
+          paddingBottom: '22px',
         }}
       >
         <Typography noWrap variant={'h4'} color={'white'}>
