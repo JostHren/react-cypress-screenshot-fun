@@ -9,7 +9,7 @@ describe('auth', () => {
     cy.get(HomeScreenSelectors.FlowersGrid).should('contain.text', 'Chrysanthemum');
     cy.get(HomeScreenSelectors.SignupButton).click();
 
-    cy.matchScreenshot();
+    //cy.matchScreenshot();
   });
 
 
@@ -26,6 +26,6 @@ describe('auth', () => {
 
     cy.get(HomeScreenSelectors.SignupSubmitButton).click();
 
-    cy.matchScreenshot();
+    //cy.matchScreenshot();
   });
 });

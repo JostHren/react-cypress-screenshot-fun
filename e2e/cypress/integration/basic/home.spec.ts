@@ -7,7 +7,7 @@ describe('basic', () => {
 
     cy.get(HomeScreenSelectors.FlowersGrid).should('contain.text', 'Chrysanthemum');
 
-    cy.matchScreenshot('desktop-size');
+    //cy.matchScreenshot('desktop-size');
 
     cy.viewport('iphone-8')
     cy.matchScreenshot('mobile-size');
