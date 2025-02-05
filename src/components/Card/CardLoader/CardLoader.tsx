@@ -1,6 +1,6 @@
 import { Box, CircularProgress } from '@mui/material';
 
-export const FlowerCardLoader = () => {
+export const CardLoader = () => {
   return (
     <Box
       display={'flex'}

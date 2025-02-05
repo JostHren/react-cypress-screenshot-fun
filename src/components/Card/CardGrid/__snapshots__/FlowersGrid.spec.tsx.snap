@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FlowersGrid component > FlowersGrid component to render 1`] = `
+exports[`BirdsGrid component > BirdsGrid component to render 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-18wf10e-MuiGrid2-root"
@@ -113,7 +113,7 @@ exports[`FlowersGrid component > FlowersGrid component to render 1`] = `
 </div>
 `;
 
-exports[`FlowersGrid component > FlowersGrid component to render when loading 1`] = `
+exports[`BirdsGrid component > BirdsGrid component to render when loading 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-18wf10e-MuiGrid2-root"
@@ -151,7 +151,7 @@ exports[`FlowersGrid component > FlowersGrid component to render when loading 1`
 </div>
 `;
 
-exports[`FlowersGrid component > FlowersGrid component to render when no flowers 1`] = `
+exports[`BirdsGrid component > BirdsGrid component to render when no birds 1`] = `
 <div>
   <div
     class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-18wf10e-MuiGrid2-root"

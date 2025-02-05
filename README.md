@@ -18,7 +18,7 @@ make docker/e2e
 This comand will run app in dev mode and run e2e screenshots. As there are no changes in codebase everything should pass.
 
 If you want to have some fun go ahead and change something in codebase. 
-(You can also change line  `63` in`/src/components/Flower/FlowerCard/FlowerCard.tsx` to `paddingBottom: '22px'`,  as in example below)
+(You can also change line  `63` in`/src/components/Bird/BirdCard/BirdCard.tsx` to `paddingBottom: '22px'`,  as in example below)
 
 Now run e2e test again and they should fail.
 

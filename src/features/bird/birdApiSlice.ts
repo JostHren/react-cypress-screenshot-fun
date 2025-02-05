@@ -1,6 +1,6 @@
 import { apiSlice } from '@/app/api/apiSlice';
 
-export interface Flower {
+export interface Card {
   id: string;
   name: string;
   latinName: string;
@@ -13,8 +13,8 @@ export interface Flower {
   features?: string;
 }
 
-export interface Flowers {
-  items: Flower[];
+export interface CardData {
+  items: Card[];
   order: string[];
   filters: {};
   total: number;
@@ -22,21 +22,21 @@ export interface Flowers {
   limit: number;
 }
 
-export const flowerApiSlice = apiSlice.injectEndpoints({
+export const birdApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getFlowers: builder.query<Flowers, string>({
+    getBirds: builder.query<CardData, string>({
       query: () => ({
-        url: '/flowers',
+        url: '/birds',
         method: 'GET',
       }),
     }),
-    getUserFlowers: builder.query<Flowers, string>({
+    getUserBirds: builder.query<CardData, string>({
       query: () => ({
-        url: '/account/flowers',
+        url: '/account/birds',
         method: 'GET',
       }),
     }),
   }),
 });
 
-export const { useGetFlowersQuery, useGetUserFlowersQuery } = flowerApiSlice;
+export const { useGetBirdsQuery, useGetUserBirdsQuery } = birdApiSlice;

@@ -5,7 +5,7 @@ describe('basic', () => {
   it('should load home screen', () => {
     cy.visit('/');
 
-    cy.get(HomeScreenSelectors.FlowersGrid).should('contain.text', 'Chrysanthemum');
+    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Bald');
 
     cy.matchScreenshot('desktop-size');
 

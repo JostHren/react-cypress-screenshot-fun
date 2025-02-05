@@ -7,5 +7,5 @@ export interface ApiRouteDetails {
 
 
 export class ApiRoute {
-  static readonly GetFlowers: ApiRouteDetails = { method: 'GET', route: `http://localhost:5174/mockServiceWorker.js` };
+  static readonly GetBirds: ApiRouteDetails = { method: 'GET', route: `http://localhost:5174/mockServiceWorker.js` };
 }

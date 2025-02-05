@@ -17,7 +17,7 @@ export const MenuItems = ({ handleModals, isLoggedIn, sxSettings }: MenuItemProp
 
   return (
     <Box sx={sxSettings}>
-      <LinkButton onClick={() => navigateTo('/home')}>Flowers</LinkButton>
+      <LinkButton onClick={() => navigateTo('/home')}>Birds</LinkButton>
       <LinkButton onClick={() => navigateTo('/latest/')}>Latest Sightings</LinkButton>
       {isLoggedIn && <LinkButton onClick={() => navigateTo('/favorites')}>Favorites</LinkButton>}
 
