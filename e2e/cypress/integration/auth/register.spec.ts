@@ -6,17 +6,17 @@ describe('auth', () => {
   it('should open signup modal', () => {
     cy.visit('/');
 
-    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Chrysanthemum');
+    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Bald');
     cy.get(HomeScreenSelectors.SignupButton).click();
 
-    //cy.matchScreenshot();
+    cy.matchScreenshot();
   });
 
 
   it('should requre all fields', () => {
     cy.visit('/');
 
-    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Chrysanthemum');
+    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Bald');
 
     cy.get(HomeScreenSelectors.SignupButton).click();
     cy.get(HomeScreenSelectors.SignupFirstNameInput).click();
@@ -26,6 +26,6 @@ describe('auth', () => {
 
     cy.get(HomeScreenSelectors.SignupSubmitButton).click();
 
-    //cy.matchScreenshot();
+    cy.matchScreenshot();
   });
 });

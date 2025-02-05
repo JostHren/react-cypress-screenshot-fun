@@ -1,5 +1,5 @@
 import { useGetBirdsQuery, useGetUserBirdsQuery } from '@/features/bird/birdApiSlice';
-import { BirdsGrid } from '@/components/Card/CardGrid/CardGrid';
+import { CardsGrid } from '@/components/Card/CardGrid/CardGrid';
 import { useAppSelector } from '@/app/store';
 import { selectToken } from '@/features/auth/authSlice';
 import { Layout } from '@/components/Layout/Layout';
@@ -11,7 +11,7 @@ const UserHome = () => {
   if (isError) return <ErrorPage title="Error" message="Sorry, there seems to be an error!" />;
   if (!isLoading && !currentData?.items) return <ErrorPage title="No Birds" message="Sorry no birds found!" />;
 
-  return <BirdsGrid birds={currentData!} isLoading={isLoading} />;
+  return <CardsGrid cards={currentData!} isLoading={isLoading} />;
 };
 
 const PublicHome = () => {
@@ -20,7 +20,7 @@ const PublicHome = () => {
   if (isError) return <ErrorPage title="Error" message="Sorry, there seems to be an error!" />;
   if (!isLoading && !currentData?.items) return <ErrorPage title="No Birds" message="Sorry no birds found!" />;
 
-  return <BirdsGrid birds={currentData!} isLoading={isLoading} />;
+  return <CardsGrid cards={currentData!} isLoading={isLoading} />;
 };
 
 export const Home = () => {

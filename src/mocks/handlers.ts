@@ -24,7 +24,7 @@ export const handlers = [
   http.get(`${API_BASE}account/birds`, () => {
     return HttpResponse.json(MOCKED_DATA)
   }),
-  http.get(`${API_BASE}bird`, () => {
+  http.get(`${API_BASE}birds`, () => {
     return HttpResponse.json(MOCKED_DATA)
   }),
 ]
