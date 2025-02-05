@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Flower component > Flower component should render if flower is favorite 1`] = `
+exports[`Bird component > Bird component should render if bird is favorite 1`] = `
 <div>
   <div
     data-component-name="Box"
@@ -27,7 +27,7 @@ exports[`Flower component > Flower component should render if flower is favorite
   position: 'absolute',
   right: '20px',
   top: '20px',
-  bgcolor: '#EAA79E',
+  bgcolor: ' #3498db ',
   width: '30px',
   height: '30px',
   borderRadius: 10,
@@ -105,7 +105,7 @@ exports[`Flower component > Flower component should render if flower is favorite
 </div>
 `;
 
-exports[`Flower component > Flower component to render 1`] = `
+exports[`Bird component > Bird component to render 1`] = `
 <div>
   <div
     data-component-name="Box"

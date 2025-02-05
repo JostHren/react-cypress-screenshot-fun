@@ -92,7 +92,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
       palette: {
         mode: 'light',
         primary: {
-          main: '#EAA79E',
+          main: '#3498db',
         },
 
         secondary: {
@@ -236,7 +236,7 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
             containedPrimary: {
               fontFamily: 'Ubuntu',
               color: 'white',
-              background: 'linear-gradient(270deg, #ECBCB3 0%, #EAA79E 100%)',
+              background: 'linear-gradient(270deg, #ECBCB3 0%,  #3498db  100%)',
               boxShadow: '0px 15px 20px 0px #EAA89F33',
             },
           },

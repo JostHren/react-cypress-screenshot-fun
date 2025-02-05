@@ -1,8 +1,8 @@
-import { Flower } from '@/features/flower/flowerApiSlice';
+import { Card } from '@/features/bird/birdApiSlice';
 import { Box, Chip, Stack, SvgIcon, Typography } from '@mui/material';
 
-interface FlowerCardProps {
-  flower: Flower;
+interface CardProps {
+  card: Card;
 }
 
 interface StarIndicatorProps {
@@ -15,7 +15,7 @@ const StarIndicator = ({ isFavorite = false }: StarIndicatorProps) => {
       position={'absolute'}
       right={'20px'}
       top={'20px'}
-      bgcolor={isFavorite ? '#EAA79E' : 'white'}
+      bgcolor={isFavorite ? '#3498db' : 'white'}
       width={'30px'}
       height={'30px'}
       borderRadius={10}
@@ -37,8 +37,8 @@ const StarIndicator = ({ isFavorite = false }: StarIndicatorProps) => {
   );
 };
 
-export const FlowerCard = ({ flower }: FlowerCardProps) => {
-  const { name, latinName, isFavorite, sightingsNum, pictureUrl, description } = flower;
+export const CardBox = ({ card }: CardProps) => {
+  const { name, latinName, isFavorite, sightingsNum, pictureUrl } = card;
 
   return (
     <Box
@@ -71,7 +71,7 @@ export const FlowerCard = ({ flower }: FlowerCardProps) => {
         </Typography>
 
         <Chip
-          sx={{ background: isFavorite ? '#EAA79E' : 'rgba(0, 0, 0, 0.5)' }}
+          sx={{ background: isFavorite ? '#3498db' : 'rgba(0, 0, 0, 0.5)' }}
           label={`${sightingsNum} sightings`}
           variant={'filled'}
           color={isFavorite ? 'primary' : 'secondary'}

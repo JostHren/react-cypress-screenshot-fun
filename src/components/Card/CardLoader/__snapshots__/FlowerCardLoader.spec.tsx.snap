@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FlowerCardLoader component > Flower component to render 1`] = `
+exports[`BirdCardLoader component > Bird component to render 1`] = `
 <div>
   <div
     data-component-name="Box"

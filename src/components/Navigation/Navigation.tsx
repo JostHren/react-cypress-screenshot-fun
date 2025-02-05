@@ -45,11 +45,11 @@ const FlowrLogo = () => {
           width: 30,
           mr: 1,
         }}
-        alt="FlowrSpot Logo"
-        src="./flowrspot.png"
+        alt="Logo"
+        src="./bird.png"
       />
       <Typography variant="h3" color="primary">
-        FlowrSpot
+        BirdSpotter
       </Typography>
     </>
   );

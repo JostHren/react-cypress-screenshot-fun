@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw'
-import {  MOCKED_FLOWERS, MOCKED_TOKEN, MOCKED_USER } from './MockData'
+import { MOCKED_DATA, MOCKED_TOKEN, MOCKED_USER } from './MockData'
 
 
 const API_BASE = import.meta.env.VITE_API_URL
@@ -21,10 +21,10 @@ export const handlers = [
     return HttpResponse.json(MOCKED_USER)
 
   }),
-  http.get(`${API_BASE}account/flowers`, () => {
-    return HttpResponse.json(MOCKED_FLOWERS)
+  http.get(`${API_BASE}account/birds`, () => {
+    return HttpResponse.json(MOCKED_DATA)
   }),
-  http.get(`${API_BASE}flowers`, () => {
-    return HttpResponse.json(MOCKED_FLOWERS)
+  http.get(`${API_BASE}bird`, () => {
+    return HttpResponse.json(MOCKED_DATA)
   }),
 ]

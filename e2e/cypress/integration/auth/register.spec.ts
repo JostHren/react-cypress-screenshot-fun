@@ -6,7 +6,7 @@ describe('auth', () => {
   it('should open signup modal', () => {
     cy.visit('/');
 
-    cy.get(HomeScreenSelectors.FlowersGrid).should('contain.text', 'Chrysanthemum');
+    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Chrysanthemum');
     cy.get(HomeScreenSelectors.SignupButton).click();
 
     //cy.matchScreenshot();
@@ -16,7 +16,7 @@ describe('auth', () => {
   it('should requre all fields', () => {
     cy.visit('/');
 
-    cy.get(HomeScreenSelectors.FlowersGrid).should('contain.text', 'Chrysanthemum');
+    cy.get(HomeScreenSelectors.BirdsGrid).should('contain.text', 'Chrysanthemum');
 
     cy.get(HomeScreenSelectors.SignupButton).click();
     cy.get(HomeScreenSelectors.SignupFirstNameInput).click();
